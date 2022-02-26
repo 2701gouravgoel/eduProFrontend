@@ -7,6 +7,7 @@ import "./register.css";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
 //   const [name, setName] = useState("");
   const { signInWithEmailAndPassword, createUserWithEmailAndPassword, authUser, loading } = useAuth();
   const navigate = useNavigate();
@@ -48,6 +49,13 @@ return (
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+        />
+        <input
+          type="text"
+          className="register__textBox"
+          value={code}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Code"
         />
         <button className="register__btn" onClick={register}>
           Register
