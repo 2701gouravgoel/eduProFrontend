@@ -1,27 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import {Route, Routes, useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 import Classrooms from './classrooms';
 import store from './store';
 import { Provider } from 'react-redux';
-import { AuthUserProvider, useAuth } from './AuthUserContext';
+import { useAuth } from './AuthUserContext';
 import Login from './Login';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Register from './Register';
 
 function App() {
   
   const navigate = useNavigate();
-  const { signOut, authUser, loading } = useAuth();
+  const {  authUser, loading } = useAuth();
+  const [isLogined, setIsLogined] = useState(false);
 
   useEffect(() => {
       if (!loading && !authUser)
       {
-        console.log("ok")
-        return navigate('/login')
+        setIsLogined(true);
       }
   }, [authUser, loading])
+
+  if(isLogined)
+    navigate('/login')
   
   return (
     

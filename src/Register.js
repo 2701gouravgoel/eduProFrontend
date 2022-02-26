@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useHistory, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthUserContext";
-import { secondaryAuth } from "./configuration/FirebaseConfig";
 import "./register.css";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogined, setIsLogined] = useState(false);
 //   const [name, setName] = useState("");
-  const { signInWithEmailAndPassword, createUserWithEmailAndPassword, authUser, loading } = useAuth();
+  const {createUserWithEmailAndPassword, authUser, loading } = useAuth();
   const navigate = useNavigate();
   const register = async() => {
     // if (!name) alert("Please enter name");
@@ -22,9 +21,11 @@ function Register() {
   useEffect(() => {
       console.log(authUser);
     if (!loading && authUser) {
-        navigate('/');
+        setIsLogined(true);
     }
 }, [authUser, loading])
+if(isLogined)
+navigate('/');
 return (
     <div className="register">
       <div className="register__container">
