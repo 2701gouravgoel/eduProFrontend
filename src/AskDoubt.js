@@ -1,0 +1,41 @@
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import { GrGallery } from 'react-icons/gr';
+import './AskDoubt.css';
+function AskDoubt() {
+    const [question, setQuestion] = useState("");
+    let answer= useSelector(state => state.answer.list);
+  
+    const ans = answer.map((i, index) => {
+        return (
+            <div className='ans-text'>
+        {i.ans}
+    </div>)
+        
+    });
+    return (
+      <div>
+      <div className="askQuestion">
+              <input
+               type="text"
+               className="register__textBox"
+               value={question}
+               onChange={(e) => setQuestion(e.target.value)}
+               placeholder="Post a Question"
+                />
+                <div style={{marginRight:20}}>
+                    <GrGallery size={30} />
+                    </div>
+            </div>
+            <div>
+                {answer.length > 0 &&
+                    
+                <div className="register_container">
+                {ans}
+                </div>}
+            </div>
+            </div>
+  )
+}
+
+export default AskDoubt

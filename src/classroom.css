@@ -1,0 +1,89 @@
+.containers {
+  display: flex;
+  flex-direction: row;
+}
+.msg-center {
+  margin-left: 20px;
+  width: 200px;
+  margin-top: 10%;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+  border-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.flex-container h1 {
+  font-size: 20;
+  font-weight: 500;
+  padding: 10px;
+}
+@media (max-width: 500px) {
+  .msg-center {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+    border-color: #000000;
+  }
+}
+@media (max-width: 500px) {
+  .img {
+    width: 100%;
+  }
+}
+.msg-center:hover .content-img {
+  width: 100%;
+  padding: 8px 15px;
+  visibility: visible;
+  opacity: 0.7;
+}
+.content-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  flex-direction: row;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.img {
+  width: 100%;
+  border-radius: 10px;
+}
+.msg-center:hover {
+  border-color: #000000;
+  border-width: 1px;
+  margin-top: 10%;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 500px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.name-text {
+  font-size: 20px;
+  color: #000000;
+  text-decoration: "none";
+}
+
+.price-text {
+  font-size: 15px;
+  color: #ff0000;
+  text-decoration: "none";
+}

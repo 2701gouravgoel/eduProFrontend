@@ -1,12 +1,9 @@
-import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import { FormControl } from 'react-bootstrap';
-import { Navbar, Nav, Container,NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthUserContext';
-import logo from './basmatiLogo.svg';
 const Navigation =(props)=>{
-    const { signOut, authUser, loading } = useAuth();
+    const { signOut, } = useAuth();
     const navigate=useNavigate();
     const gotologin=()=>{
         navigate('/login')
@@ -25,7 +22,7 @@ const Navigation =(props)=>{
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/classrooms">Classrooms</Nav.Link>
-                    <Nav.Link href="/Products">Ask Doubts</Nav.Link>
+                    <Nav.Link href="/askdoubt">Ask Doubts</Nav.Link>
                     <Nav.Link href="/Products">My Notes</Nav.Link>
                     {props.authUser!==null?
                     <Button onClick={logout} variant="outline-success">Logout</Button>:

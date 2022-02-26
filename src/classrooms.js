@@ -1,35 +1,48 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { MdPersonAddDisabled } from "react-icons/md";
 import { getProdctList } from './actions/productAction';
-import AddIcon from "@material-ui/icons/ShoppingCart";
-import './products.css';
+import './classroom.css';
 const Products = () => {
   const dispatch=useDispatch();
   let products= useSelector(state => state.products.list);
+  const [getClass, setgetclass] = useState(false);
   
-  const navigate = useNavigate();
   useEffect(() => {
-    dispatch(getProdctList());
+    setgetclass(true);
   }, [])
-  console.log(products);
-  const goToclassRoom=(id)=>{
-    navigate(`/classroom/${id}`)
-  }
+  if(getClass)
+  dispatch(getProdctList());
+
     const elm = products.map((i, index) => {
       return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
       <div className="msg-center" key={index}>
-              {/* {i.imageUrl ? <img className='img' alt='img' src={i.imageUrl} style={{height:200}} /> : null} */}
-              <div className='name-text'>
+             <div className='name-text'>
                   {i.name}
               </div>
-              <div className='price-text'>
+              <div className='student-text'>
                   {i.numberOfStudents}
+          </div>
+          <div className='faculty-text'>
+                  {i.nameOfFaculty}
+          </div>
+          <div className='unenrol'>
+                  <MdPersonAddDisabled/>
               </div>
       </div>
       </Link>
     });
-    return <div className='flex-container'>{elm}</div>;
+  return <div className='flex-container'>
+    <div className='Title'><h3>My Classrooms</h3></div>
+    <div className="containers">
+      {elm}
+    </div>
+    <div className='Title'><h3>Other Courses</h3></div>
+    <div className="containers">
+      {elm}
+      </div>
+  </div>;
   };
 
 export default Products;

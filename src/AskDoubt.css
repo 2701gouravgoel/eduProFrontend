@@ -1,0 +1,8 @@
+.askQuestion {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 1000px;
+  background-color: #dcdcdc;
+  padding: 30px;
+}
