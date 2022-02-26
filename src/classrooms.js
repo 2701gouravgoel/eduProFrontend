@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getProdctList } from './actions/productAction';
-import AddIcon from "@material-ui/icons/ShoppingCart";
 import './products.css';
 const Products = () => {
   const dispatch=useDispatch();
   let products= useSelector(state => state.products.list);
+  const [getClass, setgetclass] = useState(false);
   
-  const navigate = useNavigate();
   useEffect(() => {
-    dispatch(getProdctList());
+    setgetclass(true);
   }, [])
-  console.log(products);
-  const goToclassRoom=(id)=>{
-    navigate(`/classroom/${id}`)
-  }
+  if(getClass)
+  dispatch(getProdctList());
+
     const elm = products.map((i, index) => {
       return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
       <div className="msg-center" key={index}>
