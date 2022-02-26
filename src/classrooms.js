@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdPersonAddDisabled } from "react-icons/md";
+import { IoMdPersonAdd } from "react-icons/io";
 import { getProdctList } from './actions/productAction';
 import './classroom.css';
 const Products = () => {
@@ -33,6 +34,22 @@ const Products = () => {
       </div>
       </Link>
     });
+    const elm1 = products.map((i, index) => {
+      return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
+      <div className="msg-center" key={index}>
+             <div className='name-text'>
+                  {i.name}
+              </div>
+              
+          <div className='faculty-text'>
+                  {i.nameOfFaculty}
+          </div>
+          <div className='enroll'>
+                  <IoMdPersonAdd/>
+              </div>
+      </div>
+      </Link>
+    });
   return <div className='flex-container'>
     <div className='Title'><h3>My Classrooms</h3></div>
     <div className="containers">
@@ -40,7 +57,7 @@ const Products = () => {
     </div>
     <div className='Title'><h3>Other Courses</h3></div>
     <div className="containers">
-      {elm}
+      {elm1}
       </div>
   </div>;
   };

@@ -4,15 +4,9 @@ import { GrGallery } from 'react-icons/gr';
 import './AskDoubt.css';
 function AskDoubt() {
     const [question, setQuestion] = useState("");
-    let answer= useSelector(state => state.answer.list);
+    
   
-    const ans = answer.map((i, index) => {
-        return (
-            <div className='ans-text'>
-        {i.ans}
-    </div>)
-        
-    });
+    
     return (
       <div>
       <div className="askQuestion">
@@ -28,11 +22,7 @@ function AskDoubt() {
                     </div>
             </div>
             <div>
-                {answer.length > 0 &&
-                    
-                <div className="register_container">
-                {ans}
-                </div>}
+                
             </div>
             </div>
   )
