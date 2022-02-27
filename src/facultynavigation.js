@@ -22,7 +22,6 @@ const Navigation =(props)=>{
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/facultyclassroom">Classrooms</Nav.Link>
-                    <Nav.Link href="/Products">Answer Doubts</Nav.Link>
                     {props.authUser!==null?
                     <Button onClick={logout} variant="outline-success">Logout</Button>:
                     <Button onClick={gotologin} variant="outline-success">Login</Button>    

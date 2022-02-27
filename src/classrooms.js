@@ -38,7 +38,7 @@ const Products = () => {
 
     const elm = products.map((i, index) => {
       return  <div className="msg-center" key={index}>
-             <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
+             <Link to={`/classroom/${i.id}`} className='text-decoration-off'>
              <div className='name-text'>
                   {i.name}
           </div>
