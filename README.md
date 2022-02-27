@@ -10,7 +10,7 @@ education is ever evolving process and times like this requires adaptive learnin
 * Heroku
 * React -redux
 
-## deveoper setup
+## developer setup
 follow th below steps-
 * git clone the repository
 * cd /eduprofrontend
