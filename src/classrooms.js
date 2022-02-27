@@ -21,9 +21,24 @@ const Products = () => {
     }
   }, [authUser])
 
+
+    const addToClass = (i) =>{
+      fetch(`https://edu--pro--pro.herokuapp.com/addToClass?classId=${i.id}&id=${authUser.uid}`)
+      .then((res) => res.json())
+      .then((json) => {
+      });
+    }
+    const leaveClass = (i) =>{
+      fetch(`https://edu--pro--pro.herokuapp.com/leaveClass?classId=${i.id}&id=${authUser.uid}`)
+      .then((res) => res.json())
+      .then((json) => {
+      });
+    }
+
+
     const elm = products.map((i, index) => {
-      return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
-      <div className="msg-center" key={index}>
+      return  <div className="msg-center" key={index}>
+             <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
              <div className='name-text'>
                   {i.name}
               </div>
@@ -33,15 +48,15 @@ const Products = () => {
           <div className='faculty-text'>
                   {i.nameOfFaculty}
           </div>
-          <div className='unenrol'>
+          </Link>
+          <div onClick={()=>leaveClass(i)} className='unenrol'>
                   <MdPersonAddDisabled/>
               </div>
       </div>
-      </Link>
     });
     const elm1 = classToJoin.map((i, index) => {
-      return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
-      <div className="msg-center" key={index}>
+      return  <div className="msg-center" key={index}>
+            <Link to={`/classroom/${i._id}`} className='text-decoration-off'> 
              <div className='name-text'>
                   {i.name}
               </div>
@@ -49,11 +64,11 @@ const Products = () => {
           <div className='faculty-text'>
                   {i.nameOfFaculty}
           </div>
-          <div className='enroll'>
+          </Link>
+          <div onClick={()=>addToClass(i)} className='enroll'>
                   <IoMdPersonAdd/>
               </div>
       </div>
-      </Link>
     });
   return <div className='flex-container'>
     <div className='Title'><h3>My Classrooms</h3></div>
