@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.43cfaca2.css",
+    "main.js": "/static/js/main.5ec0de18.js",
+    "static/js/787.0f04e8ce.chunk.js": "/static/js/787.0f04e8ce.chunk.js",
+    "static/media/basmatiLogo.svg": "/static/media/basmatiLogo.7825319146f79017c0c6a86270792d5e.svg",
+    "index.html": "/index.html",
+    "main.43cfaca2.css.map": "/static/css/main.43cfaca2.css.map",
+    "main.5ec0de18.js.map": "/static/js/main.5ec0de18.js.map",
+    "787.0f04e8ce.chunk.js.map": "/static/js/787.0f04e8ce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43cfaca2.css",
+    "static/js/main.5ec0de18.js"
+  ]
+}
