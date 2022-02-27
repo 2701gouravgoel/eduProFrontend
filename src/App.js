@@ -14,6 +14,7 @@ import AdminRegisteration from './adminRegister';
 import Facultynavigation from './facultynavigation';
 import Adminnavigation from './adminnavigation';
 import { getRole } from './actions/userAction';
+import Addnotes from './addnotes';
 
 function App() {
   
@@ -53,7 +54,8 @@ function App() {
           <Route exact path="/register" element={<Register/>} />
           <Route path='/classrooms' element={<Classrooms />} />
           {/* <Route path='/askdoubt' element={<AskDoubt/>}/> */}
-          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/>  
+          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/> 
+          <Route path='/addnotes' element={<Addnotes/>}/>  
           <Route path='/adminRegisteration' element={<AdminRegisteration/>}/>              
         </Routes>        
     </div>
