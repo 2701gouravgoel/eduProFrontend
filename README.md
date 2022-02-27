@@ -16,3 +16,17 @@ follow th below steps-
 * cd /eduprofrontend
 * npm i
 * npm start
+
+Demo Video Drive Link:
+https://drive.google.com/drive/u/1/folders/1DEp7c3CgmNWqk0NJbNczv-99ibt9EvuV
+
+
+## credentails to use for login
+
+student--->
+email : xyz@gmail.com
+password:  123456789
+
+faculty --->
+email : kushagrasharma30072001@gmail.com
+password : 123456987
