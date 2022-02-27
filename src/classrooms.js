@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdPersonAddDisabled } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
-import { getClassList, getClassToJoinList } from './actions/productAction';
+import { addCourse, dropCourse, getClassList, getClassToJoinList } from './actions/productAction';
 import './classroom.css';
 import { useAuth } from './AuthUserContext';
 const Products = () => {
@@ -26,12 +26,14 @@ const Products = () => {
       fetch(`https://edu--pro--pro.herokuapp.com/addToClass?classId=${i.id}&id=${authUser.uid}`)
       .then((res) => res.json())
       .then((json) => {
+        dispatch(addCourse(i.id));
       });
     }
     const leaveClass = (i) =>{
       fetch(`https://edu--pro--pro.herokuapp.com/leaveClass?classId=${i.id}&id=${authUser.uid}`)
       .then((res) => res.json())
       .then((json) => {
+        dispatch(dropCourse(i.id));
       });
     }
 
