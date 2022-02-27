@@ -106,7 +106,7 @@ fetch(`https://edu--pro--pro.herokuapp.com/getNotes?id=${authUser.uid}`)
         <Button onClick={addNotes} style={{marginTop:20}}>
         Save</Button>
    </div>  :
-        <div className="containers">
+        <div className="containerss">
           
         {elm}
       </div>

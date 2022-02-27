@@ -2,6 +2,7 @@ import { Button } from 'react-bootstrap';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthUserContext';
+import './navigation.css';
 const Navigation =(props)=>{
     const { signOut, } = useAuth();
     const navigate=useNavigate();
@@ -20,11 +21,13 @@ const Navigation =(props)=>{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/classrooms">Classrooms</Nav.Link>
+                  <Nav.Link href="/classrooms">Classrooms</Nav.Link>
                     <Nav.Link href="/addnotes">My Notes</Nav.Link>
                     {props.authUser!==null?
-                    <Button onClick={logout} variant="outline-success">Logout</Button>:
+                            <Button onClick={logout} variant="outline-danger" className="button-logout" style={{
+                                color: 'red',
+                    borderColor: 'red',
+                }}>Logout</Button>:
                     <Button onClick={gotologin} variant="outline-success">Login</Button>    
                     }
                 </Nav>
