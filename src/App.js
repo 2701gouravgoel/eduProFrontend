@@ -14,6 +14,10 @@ import AdminRegisteration from './adminRegister';
 import Facultynavigation from './facultynavigation';
 import Adminnavigation from './adminnavigation';
 import { getRole } from './actions/userAction';
+import Todo from './Todo';
+import Footer from './footer';
+import Chat from './Chat';
+import Addnotes from './addnotes';
 
 function App() {
   
@@ -35,7 +39,7 @@ function App() {
   
   return (
     
-    <div className="App">   
+    <div className="App" style={{flex:1}}>   
     {type==='faculty' &&
     <div >
       <Facultynavigation authUser={authUser}/>
@@ -52,10 +56,15 @@ function App() {
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />
           <Route path='/classrooms' element={<Classrooms />} />
-          {/* <Route path='/askdoubt' element={<AskDoubt/>}/> */}
-          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/>  
+          <Route path='/classroom/:classId' element={<Chat/>} />
+          <Route path='/todo' element={<Todo/>}/>
+          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/> 
+          <Route path='/addnotes' element={<Addnotes/>}/>  
           <Route path='/adminRegisteration' element={<AdminRegisteration/>}/>              
-        </Routes>        
+      </Routes> 
+      <div style={{position:'absolute',bottom:10,right:10}}>
+      <Footer/>
+      </div>
     </div>
   );
 }

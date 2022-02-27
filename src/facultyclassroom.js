@@ -25,6 +25,9 @@ const Products = () => {
       <div className="msg-center" key={index}>
              <div className='name-text'>
                   {i.name}
+          </div>
+          <div className='subject-name-text'>
+                  {i.subject}
               </div>
               <div className='student-text'>
                   {i.numberOfStudents}
@@ -32,10 +35,6 @@ const Products = () => {
           <div className='faculty-text'>
                   {i.nameOfFaculty}
           </div>
-          <div className='add-file'>
-          <RiFileAddFill size={20}/>
-          </div>
-          
       </div>
       </Link>
     });
