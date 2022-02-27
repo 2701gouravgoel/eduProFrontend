@@ -1,4 +1,4 @@
-import { FETCHING_CLASS_TO_JOIN, FETCHING_PRODUCT } from "../constants";
+import { FETCHING_CLASS_TO_JOIN, FETCHING_PRODUCT,ADD_COURSE,DROP_COURSE } from "../constants";
 
 export const getClassList=(id)=>(dispatch)=>{
     console.log("called");
@@ -24,4 +24,11 @@ export const getFacultyClassList=(id)=>(dispatch)=>{
     .then((json) => {
         dispatch({type: FETCHING_PRODUCT, payload:json.list});
     });
+}
+
+export const addCourse=(id)=>(dispatch)=>{
+    dispatch({type: ADD_COURSE, payload:id});
+}
+export const dropCourse=(id)=>(dispatch)=>{
+    dispatch({type: DROP_COURSE, payload:id});
 }
