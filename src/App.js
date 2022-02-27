@@ -14,7 +14,9 @@ import AdminRegisteration from './adminRegister';
 import Facultynavigation from './facultynavigation';
 import Adminnavigation from './adminnavigation';
 import { getRole } from './actions/userAction';
-
+import Todo from './Todo';
+import Footer from './footer';
+import Chat from './Chat';
 function App() {
   
   const navigate = useNavigate();
@@ -52,10 +54,12 @@ function App() {
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />
           <Route path='/classrooms' element={<Classrooms />} />
-          {/* <Route path='/askdoubt' element={<AskDoubt/>}/> */}
+          <Route path='/classrooms/:id' element={<Chat />} />
+          <Route path='/todo' element={<Todo/>}/>
           <Route path='/facultyclassroom' element={<Facultyclassroom/>}/>  
           <Route path='/adminRegisteration' element={<AdminRegisteration/>}/>              
-        </Routes>        
+      </Routes>        
+      <Footer/>
     </div>
   );
 }
