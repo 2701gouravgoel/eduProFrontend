@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import Classrooms from './classrooms';
 import Facultyclassroom from './facultyclassroom';
 import store from './store';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { useAuth } from './AuthUserContext';
 import Login from './Login';
 import { useEffect, useState } from 'react';
@@ -13,36 +13,28 @@ import Register from './Register';
 import AdminRegisteration from './adminRegister';
 import Facultynavigation from './facultynavigation';
 import Adminnavigation from './adminnavigation';
+import { getRole } from './actions/userAction';
 
 function App() {
   
   const navigate = useNavigate();
   const {authUser, loading } = useAuth();
- const [type,settype]=useState("");
-  const getRole=()=>{
-    console.log(authUser);
-    fetch(`https://edu--pro--pro.herokuapp.com/getRole?id=${authUser.uid}`)
-    .then((res) => res.json())
-    .then((json) => {
-      console.log(`https://edu--pro--pro.herokuapp.com/getRole?id=${authUser.uid}`);
-        console.log("json",json)
-        settype(json.role)
-    });
-  }
+  const dispatch = useDispatch();
+ let type=useSelector(state=>state.user.role);
+ console.log(type,"type")
   useEffect(() => {
       if (!loading && !authUser)
       {
         navigate('/login')
       }
       else if(authUser){
-        getRole();
+        dispatch(getRole(authUser));
       }
   }, [authUser, loading])
 
   
   return (
     
-    <Provider store={store}>
     <div className="App">   
     {type==='faculty' &&
     <div >
@@ -65,8 +57,6 @@ function App() {
           <Route path='/adminRegisteration' element={<AdminRegisteration/>}/>              
         </Routes>        
     </div>
-    
-    </Provider>
   );
 }
 

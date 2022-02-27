@@ -36,6 +36,7 @@ function Register() {
 
         }),
       };
+      console.log(option.body,'sss')
       fetch(`https://edu--pro--pro.herokuapp.com/studentRegister`, option)
         .then((response) => response.json())
         .then(async(response) => 
@@ -131,13 +132,6 @@ return (
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-        />
-        <input
-          type="text"
-          className="register__textBox"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="Code"
         />
         <button className="register__btn" onClick={register}>
           Register as student

@@ -2,20 +2,23 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RiFileAddFill } from "react-icons/ri";
-import { getProdctList } from './actions/productAction';
+import { getFacultyClassList, getProdctList } from './actions/productAction';
 import { AiFillPlusSquare } from "react-icons/ai";
 import './classroom.css';
 import { Button } from 'react-bootstrap';
+import { useAuth } from './AuthUserContext';
 const Products = () => {
   const dispatch=useDispatch();
+  const {authUser, loading } = useAuth();
   let products= useSelector(state => state.products.list);
-  const [getClass, setgetclass] = useState(false);
   const [isShowForm, setisShowForm] = useState(false);
+  const [name, setname] = useState('');
+  const [link, setlink] = useState('');
+  const [subject, setsubject] = useState('');
   useEffect(() => {
-    setgetclass(true);
-  }, [])
-  if(getClass)
-  dispatch(getProdctList());
+    if(authUser)
+    dispatch(getFacultyClassList(authUser.uid));
+  }, [authUser])
 
     const elm = products.map((i, index) => {
       return  <Link to={`/classroom/${i._id}`} className='text-decoration-off'>
@@ -36,11 +39,53 @@ const Products = () => {
       </div>
       </Link>
     });
+  const createClass=()=>{
+    if(link==='')
+    {
+      alert('please enter link of the class')
+    }
+    else if(subject==='')
+    {
+      alert('please enter subject of the class')
+    }
+    else if(name==='')
+    {
+      alert('please enter code of the class')
+    }
+    else
+    {
+    let option = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        facultyId:authUser.uid,
+        link:link,
+        name:name,
+        subject:subject,
+      }),
+    };
+    console.log(option.body);
+    fetch(`https://edu--pro--pro.herokuapp.com/addClass`, option)
+      .then((response) => response.json())
+      .then(async(response) => 
+      {
+          if(response.statusCode===200)
+          {
+          }
+      });
+    }
+    setisShowForm(false);
+  }
   return <div className='flex-container'>
     <div className='Title'><h3>My Classrooms</h3></div>
     <div>
+      {!isShowForm && 
       <Button onClick={() => { setisShowForm(true)}}><AiFillPlusSquare/>
         Add Course</Button>
+      }
         {isShowForm ?    
         <div className="registers">
     <div className="register__container">
@@ -48,30 +93,28 @@ const Products = () => {
         <input
           type="text"
           className="register__textBox"
-          placeholder="Course"
+          value={name}
+          onChange={(e) => setname(e.target.value)}
+          placeholder="Course Code"
         />
         <input
           type="text"
           className="register__textBox"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
-          placeholder="Category Name"
+          value={subject}
+          onChange={(e) => setsubject(e.target.value)}
+          placeholder="Course Subject"
         />
           <input
           type="text"
           className="register__textBox"
-          // value={InstituteCode}
-          // onChange={(e) => setInstituteCode(e.target.value)}
-          placeholder="Category ID number"
+          value={link}
+          onChange={(e) => setlink(e.target.value)}
+          placeholder="Course Link"
         />
-          <input
-          type="text"
-          className="register__textBox"
-          // value={schoolName}
-          // onChange={(e) => setschoolName(e.target.value)}
-          placeholder="description"
-          /><Button onClick={() => { setisShowForm(false)}}>
+        <Button onClick={() => { setisShowForm(false)}}>
           Close</Button>
+          <Button style={{marginTop:10}} onClick={createClass}>
+          Submit</Button>
           
           </div>
           
