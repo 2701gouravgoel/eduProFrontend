@@ -17,6 +17,8 @@ import { getRole } from './actions/userAction';
 import Todo from './Todo';
 import Footer from './footer';
 import Chat from './Chat';
+import Addnotes from './addnotes';
+
 function App() {
   
   const navigate = useNavigate();
@@ -56,7 +58,8 @@ function App() {
           <Route path='/classrooms' element={<Classrooms />} />
           <Route path='/classroom/:classId' element={<Chat/>} />
           <Route path='/todo' element={<Todo/>}/>
-          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/>  
+          <Route path='/facultyclassroom' element={<Facultyclassroom/>}/> 
+          <Route path='/addnotes' element={<Addnotes/>}/>  
           <Route path='/adminRegisteration' element={<AdminRegisteration/>}/>              
       </Routes> 
       <div style={{position:'absolute',bottom:10,right:10}}>

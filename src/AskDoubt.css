@@ -6,3 +6,10 @@
   background-color: #dcdcdc;
   padding: 30px;
 }
+.input-notes input{
+  height: 240;
+}
+.register__textBox::placeholder{
+  position: absolute;
+  top: 0%;
+}
