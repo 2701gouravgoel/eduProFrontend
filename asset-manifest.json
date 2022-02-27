@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-pages/static/css/main.43cfaca2.css",
-    "main.js": "/react-pages/static/js/main.f3cb11b6.js",
+    "main.css": "/react-pages/static/css/main.24ec8bca.css",
+    "main.js": "/react-pages/static/js/main.9e426561.js",
     "static/js/787.0f04e8ce.chunk.js": "/react-pages/static/js/787.0f04e8ce.chunk.js",
     "static/media/basmatiLogo.svg": "/react-pages/static/media/basmatiLogo.7825319146f79017c0c6a86270792d5e.svg",
     "index.html": "/react-pages/index.html",
-    "main.43cfaca2.css.map": "/react-pages/static/css/main.43cfaca2.css.map",
-    "main.f3cb11b6.js.map": "/react-pages/static/js/main.f3cb11b6.js.map",
+    "main.24ec8bca.css.map": "/react-pages/static/css/main.24ec8bca.css.map",
+    "main.9e426561.js.map": "/react-pages/static/js/main.9e426561.js.map",
     "787.0f04e8ce.chunk.js.map": "/react-pages/static/js/787.0f04e8ce.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.43cfaca2.css",
-    "static/js/main.f3cb11b6.js"
+    "static/css/main.24ec8bca.css",
+    "static/js/main.9e426561.js"
   ]
 }
