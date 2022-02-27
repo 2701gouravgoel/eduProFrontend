@@ -61,7 +61,7 @@ const Products = () => {
     });
     const elm1 = classToJoin.map((i, index) => {
       return  <div className="msg-center" key={index}>
-            <Link to={`/classroom/${i._id}`} className='text-decoration-off'> 
+            {/* <Link to={`/classroom/${i._id}`} className='text-decoration-off'>  */}
              <div className='name-text'>
                   {i.name}
               </div>
@@ -71,7 +71,7 @@ const Products = () => {
           <div className='faculty-text'>
                   {i.nameOfFaculty}
           </div>
-          </Link>
+          {/* </Link> */}
           <div onClick={()=>addToClass(i)} className='enroll'>
                   <IoMdPersonAdd/>
               </div>

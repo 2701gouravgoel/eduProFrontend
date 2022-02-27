@@ -19,7 +19,7 @@ function Chat(props) {
             console.log(json)
           setgroupMessage(json.chats)
       });
-    }, [])
+    }, [authUser])
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -51,7 +51,7 @@ function Chat(props) {
                 // let date = new Date();
                 var uid = (new Date().getTime()).toString(36)
                 setgroupMessage([...groupMessage,{
-                    messageBy:authUser.uid,
+                    // messageBy:authUser.uid,
                     message: message,
                     _id:uid
                 }]);
@@ -66,12 +66,12 @@ function Chat(props) {
         <ul className="chat" id="chatList">
           {groupMessage.map(data => (
             <div key={data._id}>
-              {authUser.uid === data.messageBy ? (
+              {authUser && (authUser.uid === data.messageBy) ? (
                 <li className="self">
                   <div className="msg">
                     <p>{data.messageBy}</p>
                     <div className="message"> {data.message}</div>
-                    <div className="message"> {data.date}</div>
+                    {/* <div className="message"> {data.date}</div> */}
                   </div>
                 </li>
               ) : (
@@ -79,7 +79,7 @@ function Chat(props) {
                   <div className="msg">
                     <p>{data.messageBy}</p>
                    <div className="message"> {data.message} </div>
-                    <div className="message"> {data.date}</div>
+                    {/* <div className="message"> {data.date}</div> */}
                   </div>
                 </li>
               )}
